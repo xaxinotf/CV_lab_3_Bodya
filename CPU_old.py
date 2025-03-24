@@ -10,7 +10,7 @@ import glob
 # Відключаємо GPU (застосовується до TensorFlow)
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
-# Завантаження даних з shaped.pickle (переконайся, що файл знаходиться у потрібній папці)
+# Завантаження даних з shaped.pickle
 with open('shaped.pickle', 'rb') as f:
     ab = pickle.load(f)
 

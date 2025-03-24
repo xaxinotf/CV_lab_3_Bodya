@@ -15,7 +15,7 @@ from sklearn.manifold import TSNE
 from imblearn.over_sampling import RandomOverSampler, SMOTE, ADASYN
 
 import tensorflow as tf
-# Перейменовуємо Input з Keras, щоб уникнути конфлікту з Dash
+# перейменовуємо Input з Keras, щоб уникнути конфлікту з Dash
 from tensorflow.keras.layers import Input as KInput, Dense, Flatten, Reshape
 from tensorflow.keras.models import Model
 
@@ -392,5 +392,4 @@ app.layout = html.Div([
 ])
 
 if __name__ == '__main__':
-    # Використовуємо app.run() замість застарілого app.run_server()
     app.run(debug=True)

@@ -1,5 +1,4 @@
 ################################################
-### GPU_old.py – Використання GPU та порівняння аугментацій
 
 import os
 import time
@@ -7,13 +6,13 @@ import warnings
 import pickle
 import glob
 
-# Завантаження даних (переконайся, що shaped.pickle знаходиться у потрібній папці)
+# Завантаження даних
 with open('shaped.pickle', 'rb') as f:
     ab = pickle.load(f)
 print("Shape of ab:", ab.shape)
 
 ###############################################
-# Імпорт необхідних бібліотек
+# Імпорт  бібліотек
 import numpy as np
 import matplotlib.pyplot as plt
 from itertools import cycle, islice
@@ -24,7 +23,7 @@ from sklearn.cluster import KMeans
 from sklearn.linear_model import LogisticRegression
 from sklearn.manifold import TSNE
 
-# Аугментація даних
+# аааааугментація даних
 from imblearn.over_sampling import RandomOverSampler, SMOTE, ADASYN
 
 import tensorflow as tf
@@ -32,7 +31,7 @@ from tensorflow.keras.layers import Input, Dense, Flatten, Reshape
 from tensorflow.keras.models import Model
 
 ###############################################
-# 1. Редукція розмірності за допомогою TruncatedSVD
+# 1. редукція розмірності за допомогою TruncatedSVD
 start_time = time.time()
 params = {'n_clusters': 4}
 pca = decomposition.TruncatedSVD(n_components=10)
@@ -41,14 +40,14 @@ end_time = time.time()
 print("Time for SVD transformation: {:.2f} ms".format((end_time - start_time) * 1000))
 
 ###############################################
-# 2. Отримання 2D-простору за допомогою TSNE (для кластеризації та візуалізації)
+# 2. отримання 2D-простору за допомогою TSNE (для кластеризації та візуалізації)
 start_time = time.time()
 X_embedded = TSNE(n_components=2, random_state=42).fit_transform(X_transformed)
 end_time = time.time()
 print("Time for setting X_embedded (TSNE): {:.2f} ms".format((end_time - start_time) * 1000))
 
 ###############################################
-# 3. Кластеризація за допомогою KMeans (на TSNE-даних)
+# 3. кластеризація за допомогою KMeans (на TSNE-даних)
 t0 = time.time()
 with warnings.catch_warnings():
     warnings.filterwarnings("ignore", category=UserWarning)
@@ -59,7 +58,7 @@ t1 = time.time()
 print("Time for clustering: {:.2f} ms".format((t1 - t0) * 1000))
 print("Shape of y_pred:", y_pred.shape)
 
-# Покращена візуалізація кластерів
+# покращена візуалізація кластерів
 plt.figure(figsize=(7, 6))
 colors = np.array(list(islice(cycle(['#377eb8', '#ff7f00', '#4daf4a',
                                      '#f781bf', '#a65628', '#984ea3',
@@ -74,7 +73,7 @@ plt.tight_layout()
 plt.show()
 
 ###############################################
-# 4. Побудова автоенкодера (shallow neural network)
+# 4. побудова автоенкодера
 def create_dense_ae():
     hidden_dim = 60
     encoding_dim = 2

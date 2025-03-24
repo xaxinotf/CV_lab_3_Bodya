@@ -7,10 +7,9 @@ import warnings
 import pickle
 import glob
 
-# НЕ вимикаємо GPU – TensorFlow автоматично використовує GPU, якщо він доступний.
-# Якщо потрібні специфічні налаштування для GPU, перевір, що драйвери та CUDA/cuDNN встановлені.
 
-# Завантаження даних з shaped.pickle (переконайся, що файл знаходиться у потрібній папці)
+
+# Завантаження даних з shaped.pickle
 with open('shaped.pickle', 'rb') as f:
     ab = pickle.load(f)
 

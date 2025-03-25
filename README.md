@@ -5,6 +5,9 @@
 # CV_lab_3_Bodya
 
 Цей репозиторій містить лабораторну роботу з комп’ютерного зору, що демонструє використання методів зменшення розмірності (PCA, TSNE), кластеризації (KMeans), побудови та навчання автоенкодера, а також аугментації даних (RandomOverSampler, SMOTE, ADASYN). Крім того, реалізовано порівняння продуктивності обчислень на CPU та GPU із візуалізацією результатів за допомогою Dash.
+![image](https://github.com/user-attachments/assets/32eede0c-df48-4de6-bb73-73fe294c44b3)
+![image](https://github.com/user-attachments/assets/b85d91c5-d4ca-4af2-bd65-6437479c21f6)
+![image](https://github.com/user-attachments/assets/a029b219-60c2-442c-ba38-4c5c807439b6)
 
 ---
 
